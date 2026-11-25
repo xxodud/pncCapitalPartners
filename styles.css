@@ -76,9 +76,11 @@ body.is-main #header {
 /* Sub-page mode: 380px banner with user's uploaded P&C Capital Partners building photo */
 body.is-sub #header {
   height: 380px;
-  background-image: url('assets/sub_banner_bg.jpg');
+  background-color: #2c2d30;
+  background-image: url('/assets/sub_banner_bg.jpg');
   background-size: cover;
-  background-position: center 38%;
+  /* Positioned at center 22% so the illuminated 'P&C CAPITAL PARTNERS' wall signage is clearly framed & visible */
+  background-position: center 22%;
   background-repeat: no-repeat;
   position: relative;
 }
@@ -87,11 +89,13 @@ body.is-sub #header::before {
   content: '';
   position: absolute;
   inset: 0;
+  /* Soft left/bottom gradient for text readability while keeping the central wall logo bright and crystal clear */
   background: linear-gradient(
     90deg,
-    rgba(12, 13, 16, 0.78) 0%,
-    rgba(15, 16, 20, 0.45) 48%,
-    rgba(15, 16, 20, 0.55) 100%
+    rgba(10, 11, 14, 0.72) 0%,
+    rgba(12, 13, 16, 0.22) 34%,
+    rgba(12, 13, 16, 0.10) 65%,
+    rgba(12, 13, 16, 0.35) 100%
   );
   z-index: 1;
 }
@@ -318,6 +322,15 @@ body.is-sub #header::before {
 .language {
   position: relative;
   cursor: pointer;
+  user-select: none;
+  min-width: 96px;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.language:hover {
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--gold);
 }
 
 .language .langDrop {
@@ -328,17 +341,22 @@ body.is-sub #header::before {
   width: 100%;
   background: var(--charcoal);
   text-align: center;
-  padding: 10px 0;
+  padding: 12px 0;
   font-size: 12px;
-  color: #cccccc;
+  font-weight: 500;
+  color: #ffffff;
   border-top: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
-.language:hover .langDrop {
+.language:hover .langDrop,
+.language.open .langDrop {
   display: block;
 }
 
 .language .langDrop:hover {
+  background: var(--maroon);
   color: var(--gold);
 }
 
@@ -855,7 +873,7 @@ body.is-sub #mainView {
   z-index: 5;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 92px 20px 0;
+  padding: 96px 20px 0;
   color: #ffffff;
 }
 
@@ -870,21 +888,23 @@ body.is-sub .subHeaderBannerText {
   color: var(--gold);
   text-transform: uppercase;
   margin-bottom: 8px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
 }
 
 .subHeaderBannerText h1 {
   font-size: 40px;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: -0.02em;
   color: #ffffff;
   margin-bottom: 8px;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
 }
 
 .subHeaderBannerText p {
   font-size: 15px;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.85);
 }
 
 #subView {
@@ -1293,30 +1313,81 @@ body.is-sub #subView {
   border-color: var(--crimson);
 }
 
-/* Sub-tabs inside content (운용프로세스, 투자가이드, 펀드맵) */
-.subTabBar {
+/* Dedicated Sitemap Screen Grid (.sitemapGrid) */
+.sitemapGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+  margin-top: 20px;
+}
+
+.sitemapCol {
+  background: var(--cream-bg);
+  border: 1px solid var(--cream-border);
+  border-top: 3px solid var(--maroon);
+  padding: 30px 26px;
   display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 42px;
+  flex-direction: column;
 }
 
-.subTabBtn {
-  padding: 12px 32px;
-  border: 1px solid #d8d8d8;
-  background: #ffffff;
-  font-size: 14px;
-  color: #555555;
-  cursor: pointer;
-  transition: all 0.2s;
+.sitemapColHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--cream-border);
 }
 
-.subTabBtn.active,
-.subTabBtn:hover {
-  background: var(--maroon);
-  border-color: var(--maroon);
-  color: var(--gold);
+.sitemapColHeader .smNum {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--crimson);
+  letter-spacing: 0.12em;
+}
+
+.sitemapColHeader h3 {
+  font-size: 20px;
   font-weight: 500;
+  color: #222222;
+}
+
+.sitemapList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sitemapList li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 16px;
+  background: #ffffff;
+  border: 1px solid #e6e0d2;
+  font-size: 14.5px;
+  font-weight: 400;
+  color: #333333;
+  transition: all 0.22s ease;
+}
+
+.sitemapList li a span.arrow {
+  color: #999999;
+  font-size: 14px;
+  transition: transform 0.22s ease, color 0.22s ease;
+}
+
+.sitemapList li a:hover {
+  border-color: var(--crimson);
+  background: var(--maroon);
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+.sitemapList li a:hover span.arrow {
+  color: var(--gold);
+  transform: translateX(3px);
 }
 
 /* Pre-Footer Investment Disclaimer */
@@ -1461,7 +1532,7 @@ body.is-sub #subView {
   .bbsInfo, .otherInfo {
     width: 100%;
   }
-  .esgPillars, .execGrid, .productGrid, .philosophyGrid {
+  .esgPillars, .execGrid, .productGrid, .philosophyGrid, .sitemapGrid {
     grid-template-columns: 1fr;
   }
   .footerLeft {
