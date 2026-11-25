@@ -1681,19 +1681,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Search box slide animation
-  const schArea = document.querySelector('.schArea');
-  const schBtn = document.querySelector('.schBtn');
-  const schInput = document.getElementById('fundSearchAuto');
-  if (schBtn && schArea) {
-    schBtn.addEventListener('click', () => {
-      schArea.classList.toggle('on');
-      if (schArea.classList.contains('on')) {
-        schInput?.focus();
-      }
-    });
-  }
-
   // Today Viewed Funds popover
   const fundTrigger = document.getElementById('fundAreaTrigger');
   const fundLayer = document.getElementById('fundTodayLayer');
