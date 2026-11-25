@@ -1,0 +1,14 @@
+{
+  "name": "pnc-capital-partners",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "cf dev",
+    "build": "cf build",
+    "deploy": "cf deploy"
+  },
+  "devDependencies": {
+    "cf": "^0.15.0",
+    "wrangler": "^4.168.0"
+  }
+}

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>P&amp;C CAPITAL PARTNERS | 피앤씨캐피탈파트너스</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="is-main">
+
+  <!-- ====================================================================
+       1. HEADER & TOP UTILITY BAR (#header)
+       - On Main Page: Transparent 80px bar floating over full-screen video
+       - On Category Sub-pages: 380px banner with attached P&C building image
+       ==================================================================== -->
+  <header id="header">
+    <div class="headerLine">
+      <div class="headerWarp">
+        <!-- Custom Brand Logo recreated from the attached P&C Capital Partners image -->
+        <a href="#home" data-page="home" class="brand-logo" aria-label="P&C Capital Partners Home">
+          <span class="brand-monogram" aria-hidden="true">
+            <span class="letter-p">P</span>
+            <span class="letter-amp">&amp;</span>
+            <span class="letter-c">C</span>
+          </span>
+          <span class="brand-wordmark">
+            <span class="wm-top">P&amp;C CAPITAL</span>
+            <span class="wm-bottom">PARTNERS</span>
+          </span>
+        </a>
+
+        <!-- Right Utility Bar (.headerSlide) -->
+        <div class="headerSlide">
+          <!-- 1. Search (.schArea) -->
+          <div class="headerUtilItem schArea">
+            <button type="button" class="schBtn" title="펀드 검색">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <span>검색</span>
+            </button>
+            <div class="schInputWrap">
+              <input type="text" id="fundSearchAuto" placeholder="검색어를 입력하세요" />
+            </div>
+          </div>
+
+          <!-- 2. Recently Viewed Funds (.fundArea) -->
+          <div class="headerUtilItem fundArea" id="fundAreaTrigger">
+            <span>오늘 본 펀드</span>
+            <span class="count">(0)</span>
+            <div id="fundTodayLayer">
+              <div class="fundLayerHeader">
+                <span>오늘 본 펀드 (0)</span>
+                <button type="button" id="fundLayerClose" aria-label="닫기">&times;</button>
+              </div>
+              <div class="fundLayerBody">
+                오늘 본 펀드가 없습니다.
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Sitemap (.sitemap) -->
+          <a href="#prod-fundmap" data-page="prod-fundmap" class="headerUtilItem sitemap">
+            사이트맵
+          </a>
+
+          <!-- 4. Language (.language) -->
+          <div class="headerUtilItem language">
+            <span>KOREAN</span>
+            <div class="langDrop">ENGLISH</div>
+          </div>
+
+          <!-- 5. Menu Trigger (#menuLink) -->
+          <div class="headerUtilItem" id="menuLink" role="button" tabindex="0">
+            <span>MENU</span>
+            <span class="hamburger-icon" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Sub-page Banner Text (Visible when entering any category) -->
+    <div class="subHeaderBannerText">
+      <div class="bannerCatEn" id="bannerCatEn">about P&amp;C CAPITAL PARTNERS</div>
+      <h1 id="bannerTitle">P&amp;C 소개</h1>
+      <p id="bannerDesc">원칙과 신뢰를 바탕으로 고객의 자산을 지키는 파트너</p>
+    </div>
+  </header>
+
+  <!-- ====================================================================
+       2. SLIDE-OUT RIGHT GNB ACCORDION DRAWER (#gnbMenuLayer)
+       - Contains: ESG, 회사소개, 투자정보, 투자상품
+       - Excludes: 공지 & 공시 (Removed per user instruction #5)
+       ==================================================================== -->
+  <div id="gnbBackdrop"></div>
+  <aside id="gnbMenuLayer" aria-label="전체 메뉴">
+    <div class="gnbTop">
+      <span class="gnbBrand">P&amp;C CAPITAL PARTNERS</span>
+      <button type="button" class="gnbCloseBtn" id="gnbCloseBtn" aria-label="메뉴 닫기">&times;</button>
+    </div>
+    <div class="gnbAccordion" id="gnbAccordionContainer">
+      <!-- Populated dynamically by app.js -->
+    </div>
+  </aside>
+
+  <!-- ====================================================================
+       3. MAIN PAGE VIEW (#mainView)
+       - Full-screen Gemini Generated Video Background (#player)
+       - 50/50 Overlay Grid (#main) with 6 Interactive Hover Tiles
+       - 121px Lower Split Utility Band (.mainContents)
+       ==================================================================== -->
+  <main id="mainView">
+    <section class="heroContainer">
+      <!-- Gemini Video Background Layer (#player) -->
+      <div id="player">
+        <video id="heroBgVideo" autoplay preload="auto" loop muted playsinline>
+          <source src="assets/main_bg.mp4" type="video/mp4" />
+        </video>
+        <em></em>
+        <i></i>
+      </div>
+
+      <!-- 50/50 Split Overlay Grid (#main) -->
+      <div id="main">
+        <!-- Left 50%: Unobstructed video view framed by hairline right divider -->
+        <div class="mainSlide">
+          <div class="mainSlideBox">
+            <span class="heroBadge">P&amp;C CAPITAL PARTNERS</span>
+            <h1>원칙을 지키는 투자,<br /><strong>고객의 미래</strong>를 함께 설계합니다.</h1>
+            <p>일관된 운용철학과 깊이 있는 리서치로 흔들림 없는 장기 가치를 만들어 갑니다.</p>
+          </div>
+        </div>
+
+        <!-- Right 50%: 3x2 Interactive Tile Grid (.mainLinks) -->
+        <div class="mainLinks">
+          <!-- Tile 1: 운용철학 -->
+          <a href="#info-philosophy" data-page="info-philosophy" class="mainLinkTile tile-1">
+            <i class="tileBg"></i>
+            <div class="tileContent">
+              <h2>운용철학</h2>
+              <p>변화무쌍한 투자시장에서의 일관된 경영철학.<br />바로 고객의 이익입니다.</p>
+              <span class="tileMoreBtn" title="자세히 보기">+</span>
+            </div>
+          </a>
+
+          <!-- Tile 2: ESG -->
+          <a href="#esg-intro" data-page="esg-intro" class="mainLinkTile tile-2">
+            <i class="tileBg"></i>
+            <div class="tileContent">
+              <h2>ESG</h2>
+              <p>P&amp;C 캐피탈 파트너스의<br />ESG 철학과 비전.</p>
+              <span class="tileMoreBtn" title="자세히 보기">+</span>
+            </div>
+          </a>
+
+          <!-- Tile 3: 대표상품 -->
+          <a href="#prod-flagship" data-page="prod-flagship" class="mainLinkTile tile-3">
+            <i class="tileBg"></i>
+            <div class="tileContent">
+              <h2>대표상품</h2>
+              <p>P&amp;C 캐피탈 파트너스의<br />베스트셀러를 소개합니다.</p>
+              <span class="tileMoreBtn" title="자세히 보기">+</span>
+            </div>
+          </a>
+
+          <!-- Tile 4: 주식형펀드 -->
+          <a href="#prod-fundmap" data-page="prod-fundmap" class="mainLinkTile tile-4">
+            <i class="tileBg"></i>
+            <div class="tileContent">
+              <h2>주식형펀드</h2>
+              <p>소수의 펀드로<br />오랜 기간 투자합니다.</p>
+              <span class="tileMoreBtn" title="자세히 보기">+</span>
+            </div>
+          </a>
+
+          <!-- Tile 5: ETF -->
+          <a href="#prod-fundmap" data-page="prod-fundmap" class="mainLinkTile tile-5">
+            <i class="tileBg"></i>
+            <div class="tileContent">
+              <h2>ETF</h2>
+              <p>ETF도 액티브 ETF로.<br />차별화된 초과수익을 추구합니다.</p>
+              <span class="tileMoreBtn" title="자세히 보기">+</span>
+            </div>
+          </a>
+
+          <!-- Tile 6: 해외펀드 -->
+          <a href="#prod-fundmap" data-page="prod-fundmap" class="mainLinkTile tile-6">
+            <i class="tileBg"></i>
+            <div class="tileContent">
+              <h2>해외펀드</h2>
+              <p>투자의 시야를 넓힙니다.<br />글로벌 리더와 함께 성장합니다.</p>
+              <span class="tileMoreBtn" title="자세히 보기">+</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lower 121px 50/50 Split Band (.mainContents) -->
+    <section class="mainContents">
+      <!-- Left 50%: Deep Maroon (#631c2a) Key Highlights -->
+      <div class="bbsInfo">
+        <div class="bbsRow" data-page="prod-flagship">
+          <div class="bbsRowLeft">
+            <span class="bbsBadge">대표상품</span>
+            <span class="bbsTitle">P&amp;C 책임투자 · 액티브 가치 · 글로벌 리더스 성장주 핵심 라인업 안내</span>
+          </div>
+          <span class="bbsDate">VIEW MORE +</span>
+        </div>
+        <div class="bbsRow" data-page="about-aum">
+          <div class="bbsRowLeft">
+            <span class="bbsBadge">운용현황</span>
+            <span class="bbsTitle">P&amp;C 캐피탈 파트너스 총 운용자산(AUM) 28조 9,296억 원 달성</span>
+          </div>
+          <span class="bbsDate">VIEW MORE +</span>
+        </div>
+      </div>
+
+      <!-- Right 50%: Dark Charcoal (#292a2c) Asset Allocation Overview -->
+      <div class="otherInfo">
+        <div class="otherRow">
+          <div class="metricGroup">
+            <div class="metricItem">
+              <span class="mLabel">총 운용규모(AUM)</span>
+              <span class="mVal">289,296 억 원</span>
+            </div>
+            <div class="metricItem">
+              <span class="mLabel">주식형 비중</span>
+              <span class="mVal">49.72%</span>
+              <span class="mChange up">▲ Core Active</span>
+            </div>
+          </div>
+        </div>
+        <div class="otherRow">
+          <div class="metricGroup">
+            <div class="metricItem">
+              <span class="mLabel">채권형 비중</span>
+              <span class="mVal">43.59%</span>
+            </div>
+            <div class="metricItem">
+              <span class="mLabel">혼합 및 대체투자</span>
+              <span class="mVal">6.69%</span>
+              <span class="mChange up">▲ Balanced Risk</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+       4. CATEGORY SUB-PAGE VIEW (#subView)
+       - Top 380px Banner displays the user's attached P&C building image
+       - 60px Dark Charcoal Breadcrumb Bar (#navigation)
+       - Rich Sub-Page Content Container (#subContents)
+       ==================================================================== -->
+  <div id="subView">
+    <nav id="navigation" aria-label="서브 페이지 경로">
+      <div class="navWarp">
+        <a href="#home" data-page="home" class="navHomeBtn" title="메인으로">P&amp;C</a>
+
+        <!-- Depth 1 Category Selector -->
+        <div class="navDropdown depth1">
+          <button type="button" class="navDropTrigger">
+            <span id="navDepth1Label">회사소개</span>
+            <span>▾</span>
+          </button>
+          <ul class="navDropList" id="navDepth1List"></ul>
+        </div>
+
+        <!-- Depth 2 Submenu Selector -->
+        <div class="navDropdown depth2">
+          <button type="button" class="navDropTrigger">
+            <span id="navDepth2Label">P&amp;C 소개</span>
+            <span>▾</span>
+          </button>
+          <ul class="navDropList" id="navDepth2List"></ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Dynamic Category Content Area -->
+    <section id="subContents"></section>
+
+    <!-- Pre-Footer Investment Risk Notice -->
+    <section class="preFooterNotice">
+      <div class="preFooterInner">
+        <h4>투자 전에 확인하세요!</h4>
+        <ul>
+          <li>집합투자증권을 취득하시기 전에 투자대상, 보수·수수료 및 환매방법 등에 관하여 (간이)투자설명서를 반드시 읽어보시기 바랍니다.</li>
+          <li>집합투자기구는 자산가치 변동 및 환율 변동 등에 따라 투자원금의 손실(0~100%)이 발생할 수 있으며, 그 손실은 투자자에게 귀속됩니다.</li>
+          <li>금융투자상품은 예금자보호법에 따라 예금보험공사가 보호하지 않습니다.</li>
+          <li>과거의 운용실적이 미래의 수익률을 보장하는 것은 아닙니다.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <!-- ====================================================================
+       5. FOOTER (#footer)
+       ==================================================================== -->
+  <footer id="footer">
+    <div class="footerWarp">
+      <div class="footerLeft">
+        <a href="#home" data-page="home" class="footerLogo" aria-label="P&C Capital Partners">
+          <img src="assets/logo_dark.svg" alt="P&C CAPITAL PARTNERS" />
+        </a>
+        <div class="footerLinksWrap">
+          <div class="linkArea">
+            <a href="#esg-intro" data-page="esg-intro">스튜어드십코드</a>
+            <span class="sep">|</span>
+            <a href="#info-guide" data-page="info-guide">보호금융상품등록부</a>
+            <span class="sep">|</span>
+            <a href="https://www.fss.or.kr" target="_blank" rel="noopener">금융감독원</a>
+            <span class="sep">|</span>
+            <a href="https://www.kofia.or.kr" target="_blank" rel="noopener">금융투자협회</a>
+            <span class="sep">|</span>
+            <a href="https://www.fsc.go.kr" target="_blank" rel="noopener">금융위원회</a>
+            <span class="sep">|</span>
+            <a href="#about-pnc" data-page="about-pnc">찾아오시는길</a>
+            <span class="sep">|</span>
+            <a href="#about-pnc" data-page="about-pnc">신용정보활용체제</a>
+            <span class="sep">|</span>
+            <a href="#about-pnc" data-page="about-pnc" class="bold">개인정보처리방침</a>
+          </div>
+          <div class="otherLink">
+            <a href="https://www.fss.or.kr" target="_blank" rel="noopener">불법사금융피해신고센터 (전화상담 및 신고 1332)</a>
+            <span class="sep">|</span>
+            <a href="#info-guide" data-page="info-guide">금융사기예방을 위한 유의사항</a>
+            <span class="sep">|</span>
+            <a href="#info-guide" data-page="info-guide">금융고객 안전수칙</a>
+            <span class="sep">|</span>
+            <a href="#info-guide" data-page="info-guide">개인정보 유출관련 필수체크사항 10가지</a>
+          </div>
+          <div class="footerAddress">
+            (우)03175 서울특별시 종로구 경희궁길 20 &nbsp;|&nbsp; T. 02.3787.3500 &nbsp;|&nbsp; Copyright &copy; 2026 P&amp;C CAPITAL PARTNERS All rights are reserved.
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
